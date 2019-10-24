@@ -207,7 +207,7 @@ class Ann:
                 cost = np.squeeze(-(Y.dot(np.log(A.T)) + (1 - Y).dot(np.log(1 - A.T))) / self.n)
 
             elif self.loss == "cross_entropy":
-                cost = -np.mean(Y.dot(np.log(A + 1e-8)) )
+                cost = -np.mean(Y.T * np.log(A + 1e-8))
                                                 # 1e-8 to avoid issue with log(0)
 
             else:
